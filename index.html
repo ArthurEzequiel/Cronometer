@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="icon" href="/img/icon-fav.png">
+
+    <title>Cronor</title>
+</head>
+
+<body>
+    <section>
+        <nav class="navbar" style="position: fixed;">
+            <h1 class="text">Cronor</h1>
+        </nav>
+        <div class="section">
+            <div class="section-time">
+                <div id="timer">
+                    <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
+                </div>
+            </div>
+            <div class="button-section">
+                <button class="reset" onclick="resetTimer()"><img src="/img/reset.png"
+                        style="width: 3rem; height: 3rem;" alt="">
+                    <p> Reiniciar</p>
+                </button>
+                <button class="pause" onclick="pauseTimer()"><img src="/img/pause.png"
+                        style="width: 3rem; height: 3rem;" alt="">
+                    <p> Pausar</p>
+                </button>
+                <button class="start" onclick="startTimer()"> <img src="/img/start.png"
+                        style="width: 3rem; height: 3rem;" alt="">
+                    <p> Iniciar</p>
+                </button>
+            </div>
+
+        </div>
+    </section>
+    
+    <script>
+        let hours = 0;
+        let minutes = 0;
+        let seconds = 0;
+        let running = false;
+
+        function updateTimer() {
+            seconds++;
+
+            if (seconds >= 60) {
+                seconds = 0;
+                minutes++;
+            }
+
+            if (minutes >= 60) {
+                minutes = 0;
+                hours++;
+            }
+
+            document.getElementById('hours').innerHTML = pad(hours);
+            document.getElementById('minutes').innerHTML = pad(minutes);
+            document.getElementById('seconds').innerHTML = pad(seconds);
+        }
+
+
+        function pad(number) {
+            if (number < 10) {
+                return '0' + number;
+            } else {
+                return number;
+            }
+        }
+
+
+        function startTimer() {
+            if (!running) {
+                running = true;
+                timer = setInterval(updateTimer, 1000);
+            }
+        }
+
+
+        function pauseTimer() {
+            clearInterval(timer);
+            running = false;
+        }
+
+
+        function resetTimer() {
+            pauseTimer();
+            hours = 0;
+            minutes = 0;
+            seconds = 0;
+            document.getElementById('hours').innerHTML = '00';
+            document.getElementById('minutes').innerHTML = '00';
+            document.getElementById('seconds').innerHTML = '00';
+        }
+
+    </script>
+
+</body>
+
+</html>
