@@ -220,6 +220,7 @@ a{
 
        .button-initial{ 
         min-width: 13rem;
+        min-height: 13em;
        }
 }
 
