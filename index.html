@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/grid.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="icon" href="img/icon-fav.png">
 
@@ -13,23 +14,36 @@
 </head>
 
 <body>
-    <section>
-        <nav class="navbar" style="position: fixed;">
-            <h1 class="text">Cronor</h1>
-        </nav>
+    <nav class="navbar" style="position: fixed; background: rgba(217, 217, 217, 0.01);
+    backdrop-filter: blur(42px);">
+        <h1 class="text">Cronor</h1>
+    </nav>
+
+    <div class="initial" style="height: 100vh; width: 100%;">
+        <p class="initial-phrase">
+            Seu <strong>cronometro <br> simples e minimalista</strong>
+        </p>
+
+        <a href="#cronor-sec">
+            <button class="button-initial" style="display: grid; place-items: center;">
+                <p style="margin: 0; font-size: 50px;">&#8595;</p>
+            </button>
+        </a>
+    </div>
+    <section id="cronor-sec">
         <div class="section">
             <div class="section-time">
                 <div id="timer">
-                    <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
+                    <span id="hours">00</span> <span id="minutes">00</span> <span id="seconds">00</span>
                 </div>
             </div>
             <div class="button-section">
-                <button class="reset" onclick="resetTimer()"><img src="img/reset.png"
-                        style="width: 3rem; height: 3rem;" alt="">
+                <button class="reset" onclick="resetTimer()"><img src="img/reset.png" style="width: 3rem; height: 3rem;"
+                        alt="">
                     <p> Reiniciar</p>
                 </button>
-                <button class="pause" onclick="pauseTimer()"><img src="img/pause.png"
-                        style="width: 3rem; height: 3rem;" alt="">
+                <button class="pause" onclick="pauseTimer()"><img src="img/pause.png" style="width: 3rem; height: 3rem;"
+                        alt="">
                     <p> Pausar</p>
                 </button>
                 <button class="start" onclick="startTimer()"> <img src="img/start.png"
@@ -40,7 +54,7 @@
 
         </div>
     </section>
-    
+
     <script>
         let hours = 0;
         let minutes = 0;
