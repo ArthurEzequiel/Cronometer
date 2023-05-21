@@ -31,7 +31,9 @@
   }
   
 
-* {
+*,
+*::before,
+*,::after {
     margin: 0;
     padding: 0;
 }
@@ -58,17 +60,24 @@ section {
 
 
 .initial{ 
+    background-image: url(/img/Rectangle\ 7.png    );
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 120vh;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 15em;
+    color: #E7E5F3;
 }
 
 .button-initial{ 
     min-width: 10rem;
+    min-height: 10rem;
     background-color: transparent; width: 10vw; height: 20vh; border-radius: 100%;
-    border: #7A778D solid 1px;
-    color: #7A778D ;
+    border: #E7E5F3 solid 1px;
+    color: #E7E5F3 ;
     transition: 1s;
 }
 
@@ -77,15 +86,15 @@ a{
 }
 
 .button-initial:hover{ 
-    background-color: #7A778D;
-    border: none;
-    color: #a3a0b7;
+    background-color: #c8c7d2;
+    border: #E7E5F3;
+    color: #858298;
 
 }
 
 .initial-phrase{ 
     font-size: 45px;
-    color: #7A778D;
+    color: #E7E5F3;
 }
 
 .timesection {
@@ -108,7 +117,8 @@ a{
 .text {
     font-size: 30px;
     font-weight: 700;
-    color: #7A778D;
+    color: #E7E5F3;
+    mix-blend-mode: difference;
     margin: 0 0 0 5rem;
     cursor: pointer;
 }
@@ -193,15 +203,15 @@ a{
     .initial{ 
      gap: 3em;
     }
+    .button-initial{ 
+        min-width: 13rem;
+        min-height: 13em;
+       }
 }
 
 @media (max-width: 645px) {
     #timer {
         font-size: 4em;
-    }
-    body{ 
-        display: grid;
-        place-content: center;
     }
 
     .initial-phrase{ 
@@ -211,16 +221,19 @@ a{
     }
 
     .initial{
-        margin-right: 3rem; 
-        margin-left: 3rem;
+        padding-right: 3rem; 
+        padding-left: 3rem;
         gap: 2em;
         align-items: start;
         flex-direction: column;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
        }
 
        .button-initial{ 
-        min-width: 13rem;
-        min-height: 13em;
+        min-width: 12rem;
+        min-height: 12em;
        }
 }
 
